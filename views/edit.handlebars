@@ -1,5 +1,5 @@
 <h1 class="text-center mt-2">編輯餐廳</h1>
-<form action="/restaurants/{{restaurant._id}}/edit" method="POST" class="mx-auto mt-3" style="width:80%;">
+<form action="/restaurants/{{restaurant._id}}_?method=PUT" method="POST" class="mx-auto mt-3" style="width:80%;">
   <div class="mb-3 d-flex">
     <label for="inputName" class="form-label mr-2 text-center">餐廳名稱</label>
     <input type="text" class="form-control" id="inputName" name="name" style="width:70%; height:30px"
