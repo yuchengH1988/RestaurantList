@@ -2,7 +2,7 @@
 <div class="container search-bar">
   <div class="search-bar-outer">
     <div class="search-bar-inner">
-      <form action="/search">
+      <form action="/restaurants/searchs">
         <h4 class="mb-2">尋找餐廳：</h4>
         <div class="input-group">
           <input type="text" name="keyword" class="form-control" placeholder="輸入餐廳、分類" aria-label="Restaurant Name..."
@@ -16,7 +16,24 @@
   </div>
 </div>
 
-<div class="container mt-5">
+<div class="sort text-right mr-5">
+  <form action="/sort" method="post">
+    <select name="sort" class="form-select btn-outline-secondary m-3" ; type="submit"
+      aria-label="Default select example">
+      <option vaule="_id"> Sort </option>
+      <option value="name">店名</option>
+      <option value="category">類別</option>
+      <option value="location">地區</option>
+      <option value="rating">評分</option>
+    </select>
+    <select name="order">
+      <option value="1" selected>正序</option>
+      <option value="-1">反序</option>
+    </select>
+    <button>送出</button>
+  </form>
+</div>
+<div class="container mt-2">
   <div class="row">
     <div class="col-md-10 col-12 mx-auto">
       <div class="card-columns">

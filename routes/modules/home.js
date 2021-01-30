@@ -10,13 +10,16 @@ router.get('/', (req, res) => {
     .catch(error => console.log(error))
 })
 
-router.get('/search', (req, res) => {
-  const keyword = req.query.keyword
-  const restaurants = Restaurant.results.filter(restaurant => {
-    return restaurant.name.toLowerCase().includes(keyword.toLowerCase()) || restaurant.category.includes(keyword)
-  })
-
-  res.render('index', { restaurants })
+// sort route
+router.post('/sort', (req, res) => {
+  const sort = req.body.sort
+  const order = req.body.order
+  Restaurant.find()
+    .lean()
+    .sort({ [sort]: order })
+    .then(restaurants => res.render('index', { restaurants }))
+    .catch(error => console.error(error))
 })
+
 
 module.exports = router
