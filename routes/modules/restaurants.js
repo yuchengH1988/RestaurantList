@@ -13,6 +13,22 @@ router.post('/', (req, res) => {
     .catch(error => console.log(error))
 })
 
+//Search route
+router.get('/searchs', (req, res) => {
+  const keyword = req.query.keyword.toLowerCase()
+  console.log('keyword:', keyword)
+  Restaurant.find()
+    .lean()
+    .then(restaurants => {
+      return restaurants.filter(restaurant =>
+        restaurant.name.toLowerCase().includes(keyword)
+        || restaurant.category.toLowerCase().includes(keyword)
+      )
+    })
+    .then(restaurants => res.render('index', { restaurants, keyword }))
+    .catch(error => console.log(error))
+})
+
 router.get('/:id', (req, res) => {
   const id = req.params.id
   return Restaurant.findById(id)
@@ -48,22 +64,6 @@ router.delete('/:id', (req, res) => {
   return Restaurant.findById(id)
     .then(restaurant => restaurant.remove())
     .then(() => res.redirect('/'))
-    .catch(error => console.log(error))
-})
-
-//Search route
-router.get('/searchs', (req, res) => {
-  const keyword = req.query.keyword.toLowerCase()
-  Restaurant.find()
-    .lean()
-    .then(restaurants => {
-      return restaurants.filter(restaurants =>
-        restaurants.name.toLowerCase().includes(keyword)
-        || restaurants.name_en.toLowerCase().includes(keyword)
-        || restaurants.category.toLowerCase().includes(keyword)
-      )
-    })
-    .then(restaurants => res.render('index', { restaurants, keyword }))
     .catch(error => console.log(error))
 })
 
