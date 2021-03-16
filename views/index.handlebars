@@ -15,24 +15,29 @@
     </div>
   </div>
 </div>
-
-<div class="sort text-right mr-5">
-  <form action="/sort" method="post">
-    <select name="sort" class="form-select btn-outline-secondary m-3" ; type="submit"
-      aria-label="Default select example">
-      <option vaule="_id"> Sort </option>
-      <option value="name">店名</option>
-      <option value="category">類別</option>
-      <option value="location">地區</option>
-      <option value="rating">評分</option>
-    </select>
-    <select name="order">
-      <option value="1" selected>正序</option>
-      <option value="-1">反序</option>
-    </select>
-    <button>送出</button>
-  </form>
-</div>
+<form action='/sort' method="POST" class="container sort-section">
+  <div class="row justify-content-end">
+    <div class="col-1">
+      <select name="sort" class="form-select btn-outline-secondary m-3" ; type="submit"
+        aria-label="Default select example">
+        <option vaule="_id"> Sort </option>
+        <option value="name">店名</option>
+        <option value="category">類別</option>
+        <option value="location">地區</option>
+        <option value="rating">評分</option>
+      </select>
+    </div>
+    <div class="col-1">
+      <select name="order" class="btn-outline-secondary m-3">
+        <option value="1" selected>正序</option>
+        <option value="-1">反序</option>
+      </select>
+    </div>
+    <div class="col-2">
+      <button class="btn btn-secondary m-3 px-1">送出</button>
+    </div>
+  </div>
+</form>
 <div class="container mt-2">
   <div class="row">
     <div class="col-md-10 col-12 mx-auto">
