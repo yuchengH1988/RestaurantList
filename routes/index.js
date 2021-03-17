@@ -5,10 +5,11 @@ const home = require('./modules/home')
 const users = require('./modules/user')
 const restaurants = require('./modules/restaurants')
 
+const { authenticator } = require('../middleware/auth')
 // 準備引入路由模組
-router.use('/restaurants', restaurants)
+router.use('/restaurants', authenticator, restaurants)
 router.use('/users', users)
-router.use('/', home)
+router.use('/', authenticator, home)
 
 // 匯出路由器
 module.exports = router
