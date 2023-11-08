@@ -1,5 +1,5 @@
 # 餐廳清單 Restaurant List 
-  提供使用者查詢餐廳資訊、搜尋餐廳名稱及分類。
+  提供使用者建立自己的餐廳資訊、搜尋餐廳名稱及分類。
 
 ## 功能描述 (Features)
 * 使用者可以瀏覽全部餐廳資訊，包含：名稱、類別、評分、照片。
@@ -9,6 +9,8 @@
 * 使用者可以新增一家餐廳
 * 使用者可以修改一家餐廳的資訊
 * 使用者可以刪除一家餐廳
+* 使用者可以使用註冊功能、登入登出
+* 使用者可以使用Facebook帳號登入
 
 ## 環境建置與需求 (Prerequisites)
 1. [MongoDB v4.0 以上](https://www.mongodb.com/download-center/community)
@@ -45,6 +47,14 @@ cd restaurant-list
 輸入nodemon app.js指令
 於任一瀏覽器輸入 http://localhost:3000 
 ```
+8.使用內建帳號登入
+```
+{ email: user1@example.com , password: 12345678 }
+{ email: user2@example.com , password: 12345678 }
+
+```
+
+
 
 ## Contributor - 專案開發人員
 
